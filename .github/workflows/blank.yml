@@ -5,6 +5,7 @@ on:
     branches: [ main, flexible, lombok ]
    pull_request:
     branches: [ flexible, lombok ]
+   workflow_dispatch:    
   
    
 
