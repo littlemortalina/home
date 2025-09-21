@@ -5,7 +5,13 @@ on:
     branches: [main, flexible, lombok]
   pull_request:
     branches: [flexible, lombok]
-  workflow_dispatch:   
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to run on'
+        required: true
+        default: 'main'
+        type: string
 jobs:
   build:
     runs-on: ubuntu-latest
