@@ -3,13 +3,38 @@ package ru.netogy.home;
 public class Radio {
     private int currentVolume; // текущая громкость
     private int currentChanel; // текущая станция
+    private int maxChanel; // максимальная станция
+    private int stationCount; // максимальное количество станций
+
+    public Radio(int stationCount) {
+        if (stationCount <= 0) {
+            if (stationCount <= 0) {
+                stationCount = 10; //
+            }
+        }
+            this.stationCount = stationCount;
+            this.maxChanel = stationCount - 1;
+
+        }
+
+    public Radio() {
+        this(10);
+    }
 
     public int getCurrentVolume() {
-        return currentVolume; // для получения текущей громкости
+        return currentVolume;
     }
 
     public int getCurrentChanel() {
-        return currentChanel; // для получения текущей станции
+        return currentChanel;
+    }
+
+    public int getMaxChanel() {
+        return maxChanel;
+    }
+
+    public int getStationCount() {
+        return stationCount;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
@@ -26,7 +51,7 @@ public class Radio {
         if (newCurrentChanel < 0) { // условия для возможных каналов
             return;
         }
-        if (newCurrentChanel > 9) {
+        if (newCurrentChanel > maxChanel) {
             return;
         }
         currentChanel = newCurrentChanel;
@@ -46,16 +71,19 @@ public class Radio {
     }
 
     public void nextChanel() {
-        if (currentChanel < 9) { // переключение каналов вперед
+        if (currentChanel < maxChanel) { // переключение каналов вперед
             currentChanel = currentChanel + 1;
-        } else currentChanel = 0;
+        } else {
+            currentChanel = 0;
+        }
     }
 
     public void prevChanel() {
         if (currentChanel > 0) { // переключение каналов назад
             currentChanel = currentChanel - 1;
-        } else currentChanel = 9;
+        } else {
+            currentChanel = maxChanel;
+        }
 
     }
-
 }
