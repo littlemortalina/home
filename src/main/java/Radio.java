@@ -6,38 +6,36 @@ public class Radio {
     private int maxChanel; // максимальная станция
     private int stationCount; // максимальное количество станций
 
-    // кончтруктор с параметром
     public Radio(int stationCount) {
         if (stationCount <= 0) {
-            stationCount = 10; //
+            if (stationCount <= 0) {
+                stationCount = 10; //
+            }
         }
-        this.stationCount = stationCount;
-        this.maxChanel = stationCount - 1;
+            this.stationCount = stationCount;
+            this.maxChanel = stationCount - 1;
 
-    }
+        }
 
-    // Конструктор по умолчанию
     public Radio() {
-        this(10);// 10 станций по умолчанию
-    }
-
-
-    public int getMaxChanel() {
-        return maxChanel; // для получения максимальной станции
+        this(10);
     }
 
     public int getCurrentVolume() {
-        return currentVolume; // для получения текущей громкости
+        return currentVolume;
     }
 
     public int getCurrentChanel() {
-        return currentChanel; // для получения текущей станции
+        return currentChanel;
+    }
+
+    public int getMaxChanel() {
+        return maxChanel;
     }
 
     public int getStationCount() {
-        return stationCount; // для получения количества станций
+        return stationCount;
     }
-
 
     public void setCurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume < 0) {  //условия для возможной громкости
