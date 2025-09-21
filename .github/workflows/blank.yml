@@ -1,13 +1,11 @@
 name: Java CI
 
 on: 
-   push:
-    branches: [ main, flexible, lombok ]
-   pull_request:
-    branches: [ flexible, lombok ]
-   workflow_dispatch:    
-  
-   
+  push:
+    branches: [main, flexible, lombok]
+  pull_request:
+    branches: [flexible, lombok]
+  workflow_dispatch:    # ← Просто добавьте эту строку
 
 jobs:
   build:
@@ -20,7 +18,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribution: 'adopt'
+        distribution: 'temurin'
     
     - name: Build with Maven
       run: mvn -B -e verify
