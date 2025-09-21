@@ -2,10 +2,10 @@ name: Java CI
 
 on: 
    push:
-    branches: [flexible, lombok]
+    branches: [ main, flexible, lombok ]
    pull_request:
-    branches: [flexible, lombok]
-   workflow_dispatch: 
+    branches: [ flexible, lombok ]
+  
    
 
 jobs:
